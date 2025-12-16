@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Align | Skill Evaluation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Skill Align</p>
+      <h1>Assess, align, and staff with confidence.</h1>
+      <p class="lede">Simple skill evaluations for software testing roles. Users take topic-based assessments; admins see scores and reports to map people to opportunities.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="loginSection">
+      <div class="card__header">
+        <h2>Login</h2>
+        <p class="muted">Use your email and choose a role to continue.</p>
+      </div>
+      <form id="loginForm" class="form">
+        <label class="form__label">
+          Email
+          <input type="email" id="emailInput" required placeholder="you@company.com">
+        </label>
+        <label class="form__label">
+          Role
+          <select id="roleSelect" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <div class="form__actions">
+          <button type="submit" class="btn primary">Continue</button>
+          <button type="button" class="btn ghost" id="microsoftLoginBtn" disabled title="Stubbed for future SSO">Sign in with Microsoft (coming soon)</button>
+        </div>
+      </form>
+      <p class="muted small">SSO placeholder shown for future Microsoft/Azure AD integration.</p>
+    </section>
+
+    <section class="card" id="mainMenu" hidden>
+      <div class="card__header row-between">
+        <div>
+          <p class="muted small" id="welcomeText">Welcome</p>
+          <h2>Main menu</h2>
+        </div>
+        <button class="btn ghost small" id="logoutBtn">Logout</button>
+      </div>
+      <div class="menu-grid">
+        <button class="menu-button" data-panel="assessmentPanel" id="takeTestBtn">
+          <div class="menu-button__title">Take Skill Test</div>
+          <p class="muted small">Pick a testing topic and answer a short quiz.</p>
+        </button>
+        <button class="menu-button" data-panel="scoresPanel" id="viewScoresBtn">
+          <div class="menu-button__title">View Scores</div>
+          <p class="muted small">Admins see all attempts and outcomes.</p>
+        </button>
+        <button class="menu-button" data-panel="reportPanel" id="reportBtn">
+          <div class="menu-button__title">Report</div>
+          <p class="muted small">High-level summary of pass rates by topic.</p>
+        </button>
+      </div>
+      <p class="muted small" id="menuNote"></p>
+    </section>
+
+    <section class="card panel" id="assessmentPanel" hidden>
+      <div class="card__header row-between">
+        <h2>Assessments</h2>
+        <button class="btn ghost small" data-close-panel>Close</button>
+      </div>
+      <p class="muted">Choose a software testing topic to start a simple assessment.</p>
+      <div class="pill-list" id="topicList"></div>
+
+      <div id="assessmentArea" hidden>
+        <div class="assessment-meta row-between">
+          <div>
+            <p class="muted small">Topic</p>
+            <h3 id="activeTopicTitle"></h3>
+          </div>
+          <p class="muted small" id="questionCount"></p>
+        </div>
+        <form id="assessmentForm" class="qa-list"></form>
+        <div class="form__actions">
+          <button type="submit" class="btn primary" id="submitAssessmentBtn">Submit answers</button>
+        </div>
+        <div class="result" id="assessmentResult" hidden></div>
+      </div>
+    </section>
+
+    <section class="card panel" id="scoresPanel" hidden>
+      <div class="card__header row-between">
+        <h2>Scores (Admin)</h2>
+        <button class="btn ghost small" data-close-panel>Close</button>
+      </div>
+      <div class="filters">
+        <label class="form__label small">
+          Topic filter
+          <select id="scoresTopicFilter"></select>
+        </label>
+      </div>
+      <div id="scoresTableWrap" class="table-wrap"></div>
+      <p class="muted small" id="scoresEmpty" hidden>No attempts yet.</p>
+    </section>
+
+    <section class="card panel" id="reportPanel" hidden>
+      <div class="card__header row-between">
+        <h2>Report (Admin)</h2>
+        <button class="btn ghost small" data-close-panel>Close</button>
+      </div>
+      <p class="muted">Snapshot of pass rates per topic for quick resource alignment.</p>
+      <div id="reportSummary" class="report-grid"></div>
+      <p class="muted small" id="reportEmpty" hidden>No data yet.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
