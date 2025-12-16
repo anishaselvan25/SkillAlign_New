@@ -233,6 +233,7 @@ function selectTopic(topicId) {
   renderQuestions(topic);
   show(el.assessmentArea);
   hide(el.assessmentResult);
+  clearMessage();
 }
 
 function renderQuestions(topic) {
@@ -285,7 +286,14 @@ function sendResultEmail(email, topicName, percent) {
 function handleAssessmentSubmit(evt) {
   evt.preventDefault();
   const topic = topics.find((t) => t.id === activeTopicId);
-  if (!topic || !currentUser) return;
+  if (!topic) {
+    showMessage("Please select a topic first.");
+    return;
+  }
+  if (!currentUser) {
+    showMessage("Please log in before taking the assessment.");
+    return;
+  }
   const { correct, total, percent } = computeScore(topic);
   const attempts = loadAttempts();
   const entry = {
@@ -308,8 +316,23 @@ function handleAssessmentSubmit(evt) {
       entry.passed ? "Passed" : "Keep practicing"
     }`;
   show(el.assessmentResult);
+  clearMessage();
   refreshScoresView();
   refreshReportView();
+}
+
+function showMessage(text) {
+  const errorEl = document.getElementById("assessmentError");
+  if (!errorEl) return;
+  errorEl.textContent = text;
+  errorEl.hidden = false;
+}
+
+function clearMessage() {
+  const errorEl = document.getElementById("assessmentError");
+  if (!errorEl) return;
+  errorEl.textContent = "";
+  errorEl.hidden = true;
 }
 
 function refreshScoresView() {
