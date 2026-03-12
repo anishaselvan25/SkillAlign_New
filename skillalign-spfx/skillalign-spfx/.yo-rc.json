@@ -1,0 +1,25 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "skillalign-spfx",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart",
+    "template": "none",
+    "componentName": "SkillAlign",
+    "componentDescription": "SkillAlign Assessment Platform",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.20.8",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.24.0"
+    },
+    "version": "1.20.0",
+    "libraryName": "skillalign-spfx",
+    "libraryId": "d792ab17-be81-4ce9-a505-416200929af3",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionShortDescription": "skillalign-spfx description"
+  }
+}

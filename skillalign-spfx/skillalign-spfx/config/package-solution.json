@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "skillalign-spfx-client-side-solution",
+    "id": "d792ab17-be81-4ce9-a505-416200929af3",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "skillalign-spfx description"
+      },
+      "longDescription": {
+        "default": "skillalign-spfx description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "skillalign-spfx Feature",
+        "description": "The feature that activates elements of the skillalign-spfx solution.",
+        "id": "1129c648-8bbe-4653-a0f8-d9ad94fc1775",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/skillalign-spfx.sppkg"
+  }
+}
