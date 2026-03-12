@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "skill-align-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/skillAlign/SkillAlignWebPart.js",
+          "manifest": "./src/webparts/skillAlign/SkillAlignWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SkillAlignWebPartStrings": "lib/webparts/skillAlign/loc/{locale}.js"
+  }
+}
